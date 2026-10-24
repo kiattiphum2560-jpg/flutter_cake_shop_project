@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cake_shop_project/models/cake_shop.dart';
-
+import 'package:flutter_cake_shop_project/views/cake_shop_detail.dart';
 class CakeShopUi extends StatefulWidget {
   const CakeShopUi({super.key});
   @override
@@ -174,7 +174,14 @@ class _CakeShopUiState extends State<CakeShopUi> {
            ), // Divider
            itemBuilder: (context, index) {
              return ListTile(
-               onTap: () {},
+               onTap: () {
+                Navigator.push(
+  context,
+  MaterialPageRoute(
+    builder: (context) => CakeShopDetail(cakeShop: cakeShopData[index]),
+  ),
+);
+               },
                leading: ClipRRect(
                  borderRadius: BorderRadius.circular(6.0),
                  child: Image.asset(
